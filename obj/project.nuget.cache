@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "dgSpecHash": "nZ25mp9ACr94wKRpGs1uGxBCQGecLGKSDt3uPd8zQ2faOCTc36uiRgrde6a4xg68kk80eyTEaQJzop5vps1DPg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\egome\\source\\repos\\Safe\\Safe.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\egome\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\fluent.ribbon\\8.0.3\\fluent.ribbon.8.0.3.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\fluentwpf\\0.9.0\\fluentwpf.0.9.0.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\microsoft.cognitiveservices.speech\\1.16.0\\microsoft.cognitiveservices.speech.1.16.0.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\refractored.mvvmhelpers\\1.6.2\\refractored.mvvmhelpers.1.6.2.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.3\\sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.compression.base\\19.1.0.63\\syncfusion.compression.base.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.docio.wpf\\19.1.0.63\\syncfusion.docio.wpf.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.licensing\\19.1.0.63\\syncfusion.licensing.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.officechart.base\\19.1.0.63\\syncfusion.officechart.base.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.sfrichtextboxadv.wpf\\19.1.0.63\\syncfusion.sfrichtextboxadv.wpf.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.sftextinputlayout.wpf\\19.1.0.63\\syncfusion.sftextinputlayout.wpf.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\syncfusion.shared.wpf\\19.1.0.63\\syncfusion.shared.wpf.19.1.0.63.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\egome\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

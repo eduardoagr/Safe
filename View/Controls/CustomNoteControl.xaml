@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Safe.View.Controls.CustomNoteControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Safe.View.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300">
+    <StackPanel Margin="5">
+        <Label Content="{Binding Title}"
+               FontSize="14"
+               Foreground="White"
+               FontWeight="Bold"/>
+        <Label Content="{Binding UpdatedAt}"
+               FontSize="8"
+               Foreground="White"/>
+
+    </StackPanel>
+</UserControl>

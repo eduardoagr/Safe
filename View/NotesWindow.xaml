@@ -1,0 +1,195 @@
+﻿<Window x:Name="window"
+        x:Class="Safe.View.NotesWindow"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:viewmodel="clr-namespace:Safe.ViewModel"
+        xmlns:controls="clr-namespace:Safe.View.Controls"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="NotesWindow"
+        WindowStartupLocation="CenterScreen"
+        BorderBrush="Transparent"
+        fw:AcrylicWindow.Enabled="True"
+        fw:AcrylicWindow.TintOpacity=".4"
+        Height="700"
+        Width="1400">
+
+    <Window.Resources>
+        <viewmodel:NotesWindowVM x:Key="vm"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource vm}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Fluent:Ribbon VerticalAlignment="Center">
+            <Fluent:RibbonTabItem Header="File">
+                <Fluent:RibbonGroupBox Header="Group">
+                    <Fluent:Button Header="New Notebook"
+                                   Command="{Binding NewNotebookCommand}"
+                                   LargeIcon="/Resources/diary.png" />
+                    <Fluent:Button Header="New Note"
+                                   Command="{Binding NewNoteCommand}"
+                                   CommandParameter="{Binding SelectedNoteBook, Mode=TwoWay}"
+                                   LargeIcon="/Resources/post-it.png" />
+                    <Fluent:Button Header="Exit"
+                                   Margin="40,0,0,0"
+                                   LargeIcon="/Resources/exit.png"
+                                   Command="{Binding ExitCommand}" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+        <StatusBar Grid.Row="2"></StatusBar>
+        <Grid Grid.Row="1"
+              Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView Background="MidnightBlue"
+                      ItemsSource="{Binding Notebooks}"
+                      SelectedItem="{Binding SelectedNoteBook, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <controls:CustomNotebookControl Notebook="{Binding}">
+                                <controls:CustomNotebookControl.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Rename"
+                                                  Command="{Binding Source={StaticResource vm}, Path=RenameCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Resources/rename.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </controls:CustomNotebookControl.ContextMenu>
+                            </controls:CustomNotebookControl>
+                            <TextBox Text="{Binding Name}"
+                                     FontWeight="Bold"
+                                     Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding Source={StaticResource vm},
+                                            Path=RenameNotebookCompleteCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView Grid.Column="1"
+                      Background="#00007A"
+                      ItemsSource="{Binding Notes}"
+                      SelectedItem="{Binding SelectedNote}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <controls:CustomNoteControl Note="{Binding}">
+                                <controls:CustomNoteControl.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Rename"
+                                                  Command="{Binding Source={StaticResource vm}, Path=RenameCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Resources/rename.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </controls:CustomNoteControl.ContextMenu>
+                            </controls:CustomNoteControl>
+                            <TextBox Text="{Binding Title}"
+                                     FontWeight="Bold"
+                                     Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding Source={StaticResource vm},
+                                            Path=RenameNoteCompleteCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <ToolBarTray VerticalAlignment="Top">
+                    <ToolBar>
+                        <StackPanel Orientation="Horizontal" 
+                                    fw:AcrylicPanel.TintColor="AliceBlue">
+                            <ToggleButton BorderBrush="Transparent"
+                                          IsEnabled="{Binding IsEnabled}"
+                                          Background="Transparent"
+                                          Name="SpeechBton"
+                                          FontSize="18"
+                                          Tag="0"
+                                          Click="SpeechBton_Click">
+                                <TextBlock Text="Speech" />
+                            </ToggleButton>
+                            <ToggleButton Margin="20,0,0,0"
+                                          Name="boldBton"
+                                          IsEnabled="{Binding IsEnabled}"
+                                          FontSize="18"
+                                          Tag="1"
+                                          Click="SpeechBton_Click"
+                                          BorderBrush="Transparent"
+                                          Background="Transparent">
+                                <TextBlock Text="B" />
+                            </ToggleButton>
+                            <ToggleButton Margin="20,0,0,0"
+                                          Name="italicBton"
+                                          FontSize="18"
+                                          Tag="2"
+                                          IsEnabled="{Binding IsEnabled}"
+                                          Click="SpeechBton_Click"
+                                          BorderBrush="Transparent"
+                                          Background="Transparent">
+                                <TextBlock Text="I" />
+                            </ToggleButton>
+                            <ToggleButton Margin="20,0,0,0"
+                                          FontSize="18"
+                                          Name="UndelineBton"
+                                          Tag="3"
+                                          IsEnabled="{Binding IsEnabled}"
+                                          Click="SpeechBton_Click"
+                                          BorderBrush="Transparent"
+                                          Background="Transparent">
+                                <TextBlock Text="U" />
+                            </ToggleButton>
+                            <Fluent:ComboBox Width="100"
+                                             x:Name="FontsComboBox"
+                                             IsEnabled="{Binding IsEnabled}"
+                                             ItemsSource="{Binding Fonts, Mode=TwoWay}"
+                                             SelectionChanged="FontsComboBox_SelectionChanged"
+                                             IsEditable="False" />
+                            <Fluent:ComboBox Width="50"
+                                             ItemsSource="{Binding FontSizes, Mode=TwoWay}"
+                                             x:Name="SizeConboBox"
+                                             IsEnabled="{Binding IsEnabled}"
+                                             SelectionChanged="SizeConboBox_SelectionChanged" />
+                        </StackPanel>
+                    </ToolBar>
+                </ToolBarTray>
+                <RichTextBox Grid.Row="1"
+                             x:Name="NoteContent"
+                             IsEnabled="{Binding IsEnabled}"
+                             TextChanged="NoteContent_TextChanged"
+                             SelectionChanged="NoteContent_SelectionChanged"
+                             Foreground="Black"/>
+                <StatusBar Grid.Row="2">
+                    <TextBlock x:Name="NumOfCharacters" />
+                </StatusBar>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
