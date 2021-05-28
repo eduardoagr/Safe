@@ -5,7 +5,7 @@ namespace Safe.Model {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         [Indexed]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string Name { get; set; }
     }
 }

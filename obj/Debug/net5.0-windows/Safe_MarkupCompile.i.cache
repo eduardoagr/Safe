@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\egome\source\repos\Safe\obj\Debug\net5.0-windows\
+C:\Users\egome\Documents\GitRepos\Safe\obj\Debug\net5.0-windows\
 Safe
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\egome\source\repos\Safe\App.xaml
-7-286684881
+C:\Users\egome\Documents\GitRepos\Safe\App.xaml
+5744080494
 
-211341218141
+1841614262
 221-1190887045
-View\Controls\CustomNotebookControl.xaml;View\Controls\CustomNoteControl.xaml;View\Controls\CustomPasswordControl.xaml;View\LoginWindow.xaml;View\NotesWindow.xaml;View\RegisterWindow.xaml;View\WelcomeWindow.xaml;
+View\Controls\CustomNotebookControl.xaml;View\Controls\CustomNoteControl.xaml;View\Controls\CustomPasswordControl.xaml;View\LoginWindow.xaml;View\NotesWindow.xaml;
 
-True
+False
 

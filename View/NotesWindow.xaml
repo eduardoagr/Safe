@@ -40,6 +40,10 @@
                                    Margin="40,0,0,0"
                                    LargeIcon="/Resources/exit.png"
                                    Command="{Binding ExitCommand}" />
+                    <Fluent:Button Header="Log Out"
+                                   Margin="1170,0,0,0"
+                                   LargeIcon="/Resources/logout.png"
+                                   Command="{Binding LogOutCommand}" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>
@@ -54,7 +58,7 @@
 
             <ListView Background="MidnightBlue"
                       ItemsSource="{Binding Notebooks}"
-                      SelectedItem="{Binding SelectedNoteBook, Mode=TwoWay}">
+                      SelectedItem="{Binding SelectedNoteBook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -85,9 +89,9 @@
                 </ListView.ItemTemplate>
             </ListView>
             <ListView Grid.Column="1"
-                      Background="#00007A"
+                      Background="#FCFCFC"
                       ItemsSource="{Binding Notes}"
-                      SelectedItem="{Binding SelectedNote}">
+                      SelectedItem="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -136,8 +140,8 @@
                                           Click="SpeechBton_Click">
                                 <TextBlock Text="Speech" />
                             </ToggleButton>
-                            <ToggleButton Margin="20,0,0,0"
-                                          Name="boldBton"
+                            <ToggleButton Name="boldBton"
+                                          Margin="10,0,0,0"
                                           IsEnabled="{Binding IsEnabled}"
                                           FontSize="18"
                                           Tag="1"
@@ -146,8 +150,8 @@
                                           Background="Transparent">
                                 <TextBlock Text="B" />
                             </ToggleButton>
-                            <ToggleButton Margin="20,0,0,0"
-                                          Name="italicBton"
+                            <ToggleButton Name="italicBton"
+                                          Margin="10,0,0,0"
                                           FontSize="18"
                                           Tag="2"
                                           IsEnabled="{Binding IsEnabled}"
@@ -156,8 +160,8 @@
                                           Background="Transparent">
                                 <TextBlock Text="I" />
                             </ToggleButton>
-                            <ToggleButton Margin="20,0,0,0"
-                                          FontSize="18"
+                            <ToggleButton FontSize="18"
+                                          Margin="10,0,0,0"
                                           Name="UndelineBton"
                                           Tag="3"
                                           IsEnabled="{Binding IsEnabled}"
@@ -169,14 +173,25 @@
                             <Fluent:ComboBox Width="100"
                                              x:Name="FontsComboBox"
                                              IsEnabled="{Binding IsEnabled}"
-                                             ItemsSource="{Binding Fonts, Mode=TwoWay}"
+                                             ItemsSource="{Binding Fonts}"
                                              SelectionChanged="FontsComboBox_SelectionChanged"
                                              IsEditable="False" />
                             <Fluent:ComboBox Width="50"
-                                             ItemsSource="{Binding FontSizes, Mode=TwoWay}"
+                                             ItemsSource="{Binding FontSizes}"
                                              x:Name="SizeConboBox"
+                                             IsEditable="False"
                                              IsEnabled="{Binding IsEnabled}"
                                              SelectionChanged="SizeConboBox_SelectionChanged" />
+                            <Button Name="SaveBton"
+                                    Click="SaveBton_Click"
+                                    IsEnabled="{Binding IsEnabled}"
+                                    Margin="10,0,0,0"
+                                    BorderBrush="Transparent"
+                                    Background="Transparent"
+                                    Width="50"
+                                    Height="30">
+                                <Image Source="/Resources/save.png"></Image>
+                            </Button>
                         </StackPanel>
                     </ToolBar>
                 </ToolBarTray>

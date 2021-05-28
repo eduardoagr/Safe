@@ -9,8 +9,10 @@
   <ItemGroup>
     <None Remove="Resources\diary.png" />
     <None Remove="Resources\exit.png" />
+    <None Remove="Resources\logout.png" />
     <None Remove="Resources\post-it.png" />
     <None Remove="Resources\rename.png" />
+    <None Remove="Resources\save.png" />
     <None Remove="Resources\strongbox.png" />
   </ItemGroup>
 
@@ -21,10 +23,16 @@
     <Resource Include="Resources\exit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\logout.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\post-it.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\rename.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\strongbox.png">

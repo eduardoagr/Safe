@@ -6,6 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Safe.View"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:inputLayout="http://schemas.syncfusion.com/wpf"
         xmlns:controls="clr-namespace:Safe.View.Controls"
         xmlns:vm="clr-namespace:Safe.ViewModel"
@@ -16,27 +17,70 @@
         WindowStartupLocation="CenterScreen"
         BorderBrush="Transparent"
         fw:AcrylicWindow.Enabled="True"
-        fw:AcrylicWindow.TintOpacity=".4"
+        fw:AcrylicWindow.TintOpacity=".8"
         Width="600">
 
-    <Window.DataContext>
-        <vm:LoginVM />
-    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <vm:LoginVM x:Key="vm" />
+        </ResourceDictionary>
+    </Window.Resources>
 
-    <StackPanel Margin="20,40,20,20">
-        <inputLayout:SfTextInputLayout x:Name="sfTextInputLayout"
-                                       Hint="Username"
-                                       Margin="20,20,20,0">
-            <TextBox Foreground="BlanchedAlmond"
-                     Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        </inputLayout:SfTextInputLayout>
-        <controls:CustomPasswordControl Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Style="{StaticResource MyBtnStyle}"
-                Margin="80,100,80,0"
-                Height="30"
-                Content="Sign in"
-                Command="{Binding LoginCommand}"
-                CommandParameter="{Binding ElementName=window, Mode=OneWay}">
-        </Button>
-    </StackPanel>
+    <Grid DataContext="{StaticResource vm}">
+        <StackPanel Visibility="{Binding LoginVis}" Margin="20">
+            <inputLayout:SfTextInputLayout Hint="Email">
+                <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Foreground="#9B855C"/>
+            </inputLayout:SfTextInputLayout>
+            <controls:CustomPasswordControl Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Style="{StaticResource MyBtnStyle}"
+                    Content="Login"
+                    Height="30" 
+                    Width="200"
+                    Command="{Binding LoginCommand}"/>
+            <TextBlock Text="Do not have an account?"
+                       HorizontalAlignment="Center"
+                       Foreground="DodgerBlue"
+                       TextDecorations="Underline"
+                       Margin="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding SwitchViewsCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Visibility="{Binding RegisterVis}" Margin="20">
+            <inputLayout:SfTextInputLayout Hint="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Foreground="#9B855C"/>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Hint="Lastname">
+                <TextBox Text="{Binding Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Foreground="#9B855C"/>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Hint="Email">
+                <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Foreground="#9B855C"/>
+            </inputLayout:SfTextInputLayout>
+            <controls:CustomPasswordControl Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <controls:CustomPasswordControl Password="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Style="{StaticResource MyBtnStyle}"
+                    Content="Create Account"
+                    Height="30"
+                    Width="200"
+                    Command="{Binding CreateAccountCommand}" />
+            <TextBlock Text="Login"
+                       Foreground="DodgerBlue"
+                       HorizontalAlignment="Center"
+                       TextDecorations="Underline"
+                       Margin="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding SwitchViewsCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
 </Window>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nZ25mp9ACr94wKRpGs1uGxBCQGecLGKSDt3uPd8zQ2faOCTc36uiRgrde6a4xg68kk80eyTEaQJzop5vps1DPg==",
+  "dgSpecHash": "vdohKzITxZ9mKA41/9aD7RCv9nnoDCc5A1+Aw7RJsnYV6Ek80vh0Y5s8xDCQDiPlYMF+FEclCvNSoiB26mEq9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\egome\\source\\repos\\Safe\\Safe.csproj",
+  "projectFilePath": "C:\\Users\\egome\\Documents\\GitRepos\\Safe\\Safe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\egome\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
     "C:\\Users\\egome\\.nuget\\packages\\fluent.ribbon\\8.0.3\\fluent.ribbon.8.0.3.nupkg.sha512",

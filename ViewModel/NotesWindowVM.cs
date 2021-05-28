@@ -4,6 +4,7 @@ using MvvmHelpers.Commands;
 
 using Safe.Helpers;
 using Safe.Model;
+using Safe.View;
 using Safe.ViewModel.Helpers;
 
 using System;
@@ -19,6 +20,7 @@ namespace Safe.ViewModel {
         public ICommand ExitCommand { get; set; }
         public ICommand NewNotebookCommand { get; set; }
         public ICommand NewNoteCommand { get; set; }
+        public Command LogOutCommand { get; }
         public ICommand RenameCommand { get; set; }
         public ICommand RenameNotebookCompleteCommand { get; set; }
         public ICommand RenameNoteCompleteCommand { get; set; }
@@ -59,6 +61,7 @@ namespace Safe.ViewModel {
                 if (_SelectedNote != value) {
                     _SelectedNote = value;
                     RaisePropertyChanged();
+                    SelectedNoteChanged.Invoke(this, new EventArgs());
                     if (SelectedNote != null) {
                         IsEnabled = true;
                     } else {
@@ -104,6 +107,9 @@ namespace Safe.ViewModel {
                 ExecuteDelegate = x => CreateNewNote(SelectedNoteBook.Id),
                 CanExecuteDelegate = x => SelectedNoteBook != null
             };
+            LogOutCommand = new Command(() => {
+                LogOut.Invoke(this, new EventArgs());
+            });
             RenameNotebookCompleteCommand = new HelperCommand {
                 ExecuteDelegate = x => EditionCompltedNotebook(SelectedNoteBook),
                 CanExecuteDelegate = x => true
@@ -120,7 +126,7 @@ namespace Safe.ViewModel {
         private void EditionCompltedNote(Note selectedNote) {
             if (selectedNote != null) {
                 IsVisible = Visibility.Collapsed;
-                Database.Update(selectedNote);
+                SqliteDatabase.Update(selectedNote);
                 GetNoteBooks();
             }
         }
@@ -128,33 +134,33 @@ namespace Safe.ViewModel {
         private void EditionCompltedNotebook(Notebook notebook) {
             if (notebook != null) {
                 IsVisible = Visibility.Collapsed;
-                Database.Update(notebook);
+                SqliteDatabase.Update(notebook);
                 GetNotes();
             }
 
         }
 
-        private void CreateNewNote(int NotebookId) {
+        private async void CreateNewNote(int NotebookId) {
             Note note = new() {
                 NotebookId = NotebookId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 Title = "New Note"
             };
-            Database.Insert(note);
+           await SqliteDatabase.InsertAsync(note);
 
             GetNotes();
         }
 
-        private void CreateNewNotebook() {
-            Notebook notebook = new() { Name = $"Notebook" };
-            Database.Insert(notebook);
+        private async void CreateNewNotebook() {
+            Notebook notebook = new() { Name = $"Notebook", UserId = App.UserId };
+          await SqliteDatabase.InsertAsync(notebook);
             GetNoteBooks();
         }
 
-        private void GetNoteBooks() {
+        public void GetNoteBooks() {
 
-            var notebooks = Database.Read<Notebook>();
+            var notebooks = SqliteDatabase.Read<Notebook>().Where(n => n.UserId == App.UserId);
 
             Notebooks.Clear();
             foreach (var item in notebooks) {
@@ -165,7 +171,7 @@ namespace Safe.ViewModel {
         private void GetNotes() {
 
             if (SelectedNoteBook != null) {
-                var notes = Database.Read<Note>().Where(
+                var notes = SqliteDatabase.Read<Note>().Where(
                     n => n.NotebookId == SelectedNoteBook.Id)
                     .ToList();
 
@@ -175,5 +181,8 @@ namespace Safe.ViewModel {
                 }
             }
         }
+
+        public event EventHandler SelectedNoteChanged;
+        public event EventHandler LogOut;
     }
 }

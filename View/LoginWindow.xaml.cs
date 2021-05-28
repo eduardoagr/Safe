@@ -1,4 +1,5 @@
-﻿using Safe.ViewModel;
+﻿
+using Safe.ViewModel;
 
 using System.Windows;
 
@@ -7,14 +8,17 @@ namespace Safe.View {
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
     public partial class LoginWindow : Window {
+        readonly LoginVM vM;
         public LoginWindow() {
             InitializeComponent();
 
-            LoginVM loginVM = new();
-            DataContext = loginVM;
-            if (loginVM.CloseAction == null) {
-                loginVM.CloseAction = new(Close);
-            }
+            vM = Resources["vm"] as LoginVM;
+            vM.Authenticacated += VM_Authenticacated;
+
+        }
+
+        private void VM_Authenticacated(object sender, System.EventArgs e) {
+            Close();
         }
     }
 }

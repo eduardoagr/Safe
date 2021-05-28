@@ -2,6 +2,11 @@
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
+using Safe.Helpers;
+using Safe.ViewModel;
+
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -15,9 +20,12 @@ namespace Safe.View {
         readonly string key = "2ac1fba0bf9d40bca76d17fd0a94d69e";
         readonly SpeechRecognizer recog;
         bool isRecognizing;
-
+        readonly NotesWindowVM vM;
         public NotesWindow() {
             InitializeComponent();
+
+            vM = Resources["vm"] as NotesWindowVM;
+            vM.SelectedNoteChanged += VM_SelectedNoteChanged;
 
             var speechRecognizer = SpeechConfig.FromSubscription(key, region);
             var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
@@ -25,10 +33,34 @@ namespace Safe.View {
 
             recog.Recognized += SpeechRecognizer_Recognized;
         }
+
+
+        private void VM_SelectedNoteChanged(object sender, EventArgs e) {
+            NoteContent.Document.Blocks.Clear();
+            if (vM.SelectedNote != null) {
+                if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
+                    using FileStream fs = new(vM.SelectedNote.FileLocation, FileMode.Open);
+                    var contents = new TextRange(NoteContent.Document.ContentStart,
+    NoteContent.Document.ContentEnd);
+                    contents.Load(fs, DataFormats.Rtf);
+                }
+            }
+        }
+
         private async void SpeechRecognizer_Recognized(object sender, SpeechRecognitionEventArgs e) {
             if (e.Result.Reason == ResultReason.RecognizedSpeech) {
                 await Dispatcher.InvokeAsync(() => NoteContent.AppendText($"{e.Result.Text}"));
 
+            }
+        }
+
+        protected override void OnActivated(EventArgs e) {
+            base.OnActivated(e);
+
+            if (string.IsNullOrEmpty(App.UserId)) {
+                LoginWindow loginWindow = new();
+                loginWindow.ShowDialog();
+                vM.GetNoteBooks();
             }
         }
         private void NoteContent_TextChanged(object sender, TextChangedEventArgs e) {
@@ -84,11 +116,11 @@ namespace Safe.View {
         }
         private void NoteContent_SelectionChanged(object sender, RoutedEventArgs e) {
 
-            var selectionFontWeight = NoteContent.Selection.GetPropertyValue(Inline.FontWeightProperty);
+            var selectionFontWeight = NoteContent.Selection.GetPropertyValue(TextElement.FontWeightProperty);
             boldBton.IsChecked = (selectionFontWeight != DependencyProperty.UnsetValue)
                 && selectionFontWeight.Equals(FontWeights.Bold);
 
-            var selectionFontStyle = NoteContent.Selection.GetPropertyValue(Inline.FontStyleProperty);
+            var selectionFontStyle = NoteContent.Selection.GetPropertyValue(TextElement.FontStyleProperty);
             italicBton.IsChecked = (selectionFontStyle != DependencyProperty.UnsetValue)
                 && selectionFontStyle.Equals(FontStyles.Italic);
 
@@ -108,6 +140,17 @@ namespace Safe.View {
 
         private void SizeConboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             NoteContent.Selection.ApplyPropertyValue(FontSizeProperty, SizeConboBox.Text);
+        }
+        private void SaveBton_Click(object sender, RoutedEventArgs e) {
+
+            var rtfFile = Path.Combine(Environment.CurrentDirectory, $"{vM.SelectedNote.Id}");
+            vM.SelectedNote.FileLocation = rtfFile;
+            SqliteDatabase.Update(vM.SelectedNote);
+
+            FileStream fs = new(rtfFile, FileMode.Create);
+            var contents = new TextRange(NoteContent.Document.ContentStart,
+                NoteContent.Document.ContentEnd);
+            contents.Save(fs, DataFormats.Rtf);
         }
     }
 }

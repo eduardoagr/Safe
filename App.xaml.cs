@@ -6,6 +6,8 @@ namespace Safe {
     /// </summary>
     public partial class App : Application {
 
+        public static string UserId = string.Empty; 
+
         const string KEY = "NDQzMjgyQDMxMzkyZTMxMmUzMFBXTkhGZ2hSRmVQZENVTTZ6RXdoaTFqdytuYyt3TW0yVUdYTy9Xd0dGeEU9";
         public App() {
             //Register Syncfusion license

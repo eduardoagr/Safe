@@ -9,11 +9,11 @@
     <StackPanel Margin="5">
         <Label Content="{Binding Title}"
                FontSize="14"
-               Foreground="White"
+               Foreground="Black"
                FontWeight="Bold"/>
         <Label Content="{Binding UpdatedAt}"
                FontSize="8"
-               Foreground="White"/>
+               Foreground="Black"/>
 
     </StackPanel>
 </UserControl>
