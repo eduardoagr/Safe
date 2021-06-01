@@ -145,7 +145,7 @@ namespace Safe.View {
 
             var rtfFile = Path.Combine(Environment.CurrentDirectory, $"{vM.SelectedNote.Id}");
             vM.SelectedNote.FileLocation = rtfFile;
-            Database.Update(vM.SelectedNote);
+            Database.UpdateAsync(vM.SelectedNote);
 
             FileStream fs = new(rtfFile, FileMode.Create);
             var contents = new TextRange(NoteContent.Document.ContentStart,

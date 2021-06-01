@@ -122,18 +122,18 @@ namespace Safe.ViewModel {
             GetNoteBooksAsync();
         }
 
-        private void EditionCompltedNote(Note selectedNote) {
+        private async void EditionCompltedNote(Note selectedNote) {
             if (selectedNote != null) {
                 IsVisible = Visibility.Collapsed;
-                Database.Update(selectedNote);
+               await Database.UpdateAsync(selectedNote);
                 GetNoteBooksAsync();
             }
         }
 
-        private void EditionCompltedNotebook(Notebook notebook) {
+        private async void EditionCompltedNotebook(Notebook notebook) {
             if (notebook != null) {
                 IsVisible = Visibility.Collapsed;
-                Database.Update(notebook);
+                await Database.UpdateAsync(notebook);
                 GetNotes();
             }
 
@@ -159,24 +159,33 @@ namespace Safe.ViewModel {
 
         public async void GetNoteBooksAsync() {
 
+            var notebooks = await Database.ReadAsync<Notebook>();
 
-            var notebooks = (await Database.ReadAsync<Notebook>()).Where(n => n.UserId == App.UserId);
+            if (notebooks != null) {
 
-            Notebooks.Clear();
-            foreach (var item in notebooks) {
-                Notebooks.Add(item);
+                notebooks.Where(n => n.Id == App.UserId);
+
+                Notebooks.Clear();
+                foreach (var item in notebooks) {
+                    Notebooks.Add(item);
+                }
             }
+
         }
+
 
         private async void GetNotes() {
 
             if (SelectedNoteBook != null) {
-                var notes = (await Database.ReadAsync<Note>()).Where(n => n.NotebookId == SelectedNoteBook.Id)
-                    .ToList();
+                var notes = await Database.ReadAsync<Note>();
+                if (notes != null) {
 
-                Notes.Clear();
-                foreach (var item in notes) {
-                    Notes.Add(item);
+                    notes.Where(n => n.NotebookId == SelectedNote.Id);
+
+                    Notes.Clear();
+                    foreach (var item in notes) {
+                        Notes.Add(item);
+                    }
                 }
             }
         }

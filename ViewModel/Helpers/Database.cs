@@ -20,19 +20,6 @@ namespace Safe.Helpers {
 
         public static async Task<bool> InsertAsync<T>(T Item) {
 
-            //bool inserted = false;
-
-            //using (SQLiteConnection conn = new(dbFile)) {
-
-            //    conn.CreateTable<T>();
-            //    int row = conn.Insert(Item);
-            //    if (row > 0) {
-            //        inserted = true;
-            //    }
-            //}
-
-            //return inserted;
-
             string jsonBody = JsonConvert.SerializeObject(Item);
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
             using (HttpClient client = new()) {
@@ -47,18 +34,8 @@ namespace Safe.Helpers {
 
         public static async Task<List<T>> ReadAsync<T>() where T : HasId {
 
-            //List<T> items;
-
-            //using (SQLiteConnection conn = new(dbFile)) {
-
-            //    conn.CreateTable<T>();
-            //    items = conn.Table<T>().ToList();
-            //}
-            //return items;
-
-
             using (HttpClient client = new()) {
-                var res = await client.GetAsync($"{FirebadeDb}{typeof(T).GetType().Name.ToLower()}.json");
+                var res = await client.GetAsync($"{FirebadeDb}{typeof(T).Name.ToLower()}.json");
                 var JsonRes = await res.Content.ReadAsStringAsync();
                 if (res.IsSuccessStatusCode) {
                     var valuePairs = JsonConvert.DeserializeObject<Dictionary<string, T>>(JsonRes);
@@ -81,34 +58,30 @@ namespace Safe.Helpers {
             }
         }
 
-        public static bool Update<T>(T Item) {
+        public static async Task<bool> UpdateAsync<T>(T Item) where T : HasId{
 
-            bool inserted = false;
-
-            using (SQLiteConnection conn = new(dbFile)) {
-
-                conn.CreateTable<T>();
-                int row = conn.Update(Item);
-                if (row > 0) {
-                    inserted = true;
+            string jsonBody = JsonConvert.SerializeObject(Item);
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+            using (HttpClient client = new()) {
+                var res = await client.PatchAsync($"{FirebadeDb}{Item.GetType().Name.ToLower()}/{Item.Id}.json", content);
+                if (res.IsSuccessStatusCode) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
-            return inserted;
         }
 
-        public static bool Delete<T>(T Item) {
+        public static async Task<bool> DeleteAsync<T>(T Item) where T : HasId {
 
-            bool inserted = false;
-
-            using (SQLiteConnection conn = new(dbFile)) {
-
-                conn.CreateTable<T>();
-                int row = conn.Delete(Item);
-                if (row > 0) {
-                    inserted = true;
+            using (HttpClient client = new()) {
+                var res = await client.DeleteAsync($"{FirebadeDb}{Item.GetType().Name.ToLower()}/{Item.Id}.json");
+                if (res.IsSuccessStatusCode) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
-            return inserted;
         }
     }
 }
