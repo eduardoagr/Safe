@@ -60,7 +60,7 @@ namespace Safe.View {
             if (string.IsNullOrEmpty(App.UserId)) {
                 LoginWindow loginWindow = new();
                 loginWindow.ShowDialog();
-                vM.GetNoteBooks();
+                vM.GetNoteBooksAsync();
             }
         }
         private void NoteContent_TextChanged(object sender, TextChangedEventArgs e) {
@@ -145,7 +145,7 @@ namespace Safe.View {
 
             var rtfFile = Path.Combine(Environment.CurrentDirectory, $"{vM.SelectedNote.Id}");
             vM.SelectedNote.FileLocation = rtfFile;
-            SqliteDatabase.Update(vM.SelectedNote);
+            Database.Update(vM.SelectedNote);
 
             FileStream fs = new(rtfFile, FileMode.Create);
             var contents = new TextRange(NoteContent.Document.ContentStart,

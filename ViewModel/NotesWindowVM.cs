@@ -4,7 +4,6 @@ using MvvmHelpers.Commands;
 
 using Safe.Helpers;
 using Safe.Model;
-using Safe.View;
 using Safe.ViewModel.Helpers;
 
 using System;
@@ -120,47 +119,48 @@ namespace Safe.ViewModel {
             };
 
 
-            GetNoteBooks();
+            GetNoteBooksAsync();
         }
 
         private void EditionCompltedNote(Note selectedNote) {
             if (selectedNote != null) {
                 IsVisible = Visibility.Collapsed;
-                SqliteDatabase.Update(selectedNote);
-                GetNoteBooks();
+                Database.Update(selectedNote);
+                GetNoteBooksAsync();
             }
         }
 
         private void EditionCompltedNotebook(Notebook notebook) {
             if (notebook != null) {
                 IsVisible = Visibility.Collapsed;
-                SqliteDatabase.Update(notebook);
+                Database.Update(notebook);
                 GetNotes();
             }
 
         }
 
-        private async void CreateNewNote(int NotebookId) {
+        private async void CreateNewNote(string NotebookId) {
             Note note = new() {
                 NotebookId = NotebookId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 Title = "New Note"
             };
-           await SqliteDatabase.InsertAsync(note);
+            await Database.InsertAsync(note);
 
             GetNotes();
         }
 
         private async void CreateNewNotebook() {
             Notebook notebook = new() { Name = $"Notebook", UserId = App.UserId };
-          await SqliteDatabase.InsertAsync(notebook);
-            GetNoteBooks();
+            await Database.InsertAsync(notebook);
+            GetNoteBooksAsync();
         }
 
-        public void GetNoteBooks() {
+        public async void GetNoteBooksAsync() {
 
-            var notebooks = SqliteDatabase.Read<Notebook>().Where(n => n.UserId == App.UserId);
+
+            var notebooks = (await Database.ReadAsync<Notebook>()).Where(n => n.UserId == App.UserId);
 
             Notebooks.Clear();
             foreach (var item in notebooks) {
@@ -168,11 +168,10 @@ namespace Safe.ViewModel {
             }
         }
 
-        private void GetNotes() {
+        private async void GetNotes() {
 
             if (SelectedNoteBook != null) {
-                var notes = SqliteDatabase.Read<Note>().Where(
-                    n => n.NotebookId == SelectedNoteBook.Id)
+                var notes = (await Database.ReadAsync<Note>()).Where(n => n.NotebookId == SelectedNoteBook.Id)
                     .ToList();
 
                 Notes.Clear();
