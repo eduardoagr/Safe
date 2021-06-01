@@ -51,14 +51,6 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Visibility="{Binding RegisterVis}" Margin="20">
-            <inputLayout:SfTextInputLayout Hint="Name">
-                <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Foreground="#9B855C"/>
-            </inputLayout:SfTextInputLayout>
-            <inputLayout:SfTextInputLayout Hint="Lastname">
-                <TextBox Text="{Binding Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Foreground="#9B855C"/>
-            </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout Hint="Email">
                 <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Foreground="#9B855C"/>

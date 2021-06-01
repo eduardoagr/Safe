@@ -41,7 +41,7 @@ namespace Safe.View {
                 if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
                     using FileStream fs = new(vM.SelectedNote.FileLocation, FileMode.Open);
                     var contents = new TextRange(NoteContent.Document.ContentStart,
-    NoteContent.Document.ContentEnd);
+                    NoteContent.Document.ContentEnd);
                     contents.Load(fs, DataFormats.Rtf);
                 }
             }

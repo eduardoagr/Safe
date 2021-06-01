@@ -37,37 +37,37 @@
           }
         }
       },
-      "Microsoft.CognitiveServices.Speech/1.16.0": {
+      "Microsoft.CognitiveServices.Speech/1.17.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.CognitiveServices.Speech.csharp.dll": {
-            "assemblyVersion": "1.16.0.28",
-            "fileVersion": "1.16.0.28"
+            "assemblyVersion": "1.17.0.28",
+            "fileVersion": "1.17.0.28"
           }
         },
         "runtimeTargets": {
           "runtimes/linux-arm/lib/netstandard2.0/Microsoft.CognitiveServices.Speech.csharp.dll": {
             "rid": "linux-arm",
             "assetType": "runtime",
-            "assemblyVersion": "1.16.0.28",
-            "fileVersion": "1.16.0.28"
+            "assemblyVersion": "1.17.0.28",
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/linux-arm64/lib/netstandard2.0/Microsoft.CognitiveServices.Speech.csharp.dll": {
             "rid": "linux-arm64",
             "assetType": "runtime",
-            "assemblyVersion": "1.16.0.28",
-            "fileVersion": "1.16.0.28"
+            "assemblyVersion": "1.17.0.28",
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/linux-x64/lib/netstandard2.0/Microsoft.CognitiveServices.Speech.csharp.dll": {
             "rid": "linux-x64",
             "assetType": "runtime",
-            "assemblyVersion": "1.16.0.28",
-            "fileVersion": "1.16.0.28"
+            "assemblyVersion": "1.17.0.28",
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/osx-x64/lib/netstandard2.0/Microsoft.CognitiveServices.Speech.csharp.dll": {
             "rid": "osx-x64",
             "assetType": "runtime",
-            "assemblyVersion": "1.16.0.28",
-            "fileVersion": "1.16.0.28"
+            "assemblyVersion": "1.17.0.28",
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/linux-arm/native/libMicrosoft.CognitiveServices.Speech.core.so": {
             "rid": "linux-arm",
@@ -85,6 +85,11 @@
             "fileVersion": "0.0.0.0"
           },
           "runtimes/linux-arm/native/libMicrosoft.CognitiveServices.Speech.extension.kws.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libMicrosoft.CognitiveServices.Speech.extension.lu.so": {
             "rid": "linux-arm",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
@@ -109,6 +114,11 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
+          "runtimes/linux-arm64/native/libMicrosoft.CognitiveServices.Speech.extension.lu.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
           "runtimes/linux-x64/native/libMicrosoft.CognitiveServices.Speech.core.so": {
             "rid": "linux-x64",
             "assetType": "native",
@@ -129,6 +139,11 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
+          "runtimes/linux-x64/native/libMicrosoft.CognitiveServices.Speech.extension.lu.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
           "runtimes/osx-x64/native/libMicrosoft.CognitiveServices.Speech.core.dylib": {
             "rid": "osx-x64",
             "assetType": "native",
@@ -137,7 +152,7 @@
           "runtimes/win-x64/native/Microsoft.CognitiveServices.Speech.core.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/win-x64/native/Microsoft.CognitiveServices.Speech.extension.audio.sys.dll": {
             "rid": "win-x64",
@@ -152,17 +167,22 @@
           "runtimes/win-x64/native/Microsoft.CognitiveServices.Speech.extension.kws.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
+          },
+          "runtimes/win-x64/native/Microsoft.CognitiveServices.Speech.extension.lu.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/Microsoft.CognitiveServices.Speech.extension.silk_codec.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/win-x86/native/Microsoft.CognitiveServices.Speech.core.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/win-x86/native/Microsoft.CognitiveServices.Speech.extension.audio.sys.dll": {
             "rid": "win-x86",
@@ -177,17 +197,22 @@
           "runtimes/win-x86/native/Microsoft.CognitiveServices.Speech.extension.kws.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
+          },
+          "runtimes/win-x86/native/Microsoft.CognitiveServices.Speech.extension.lu.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/Microsoft.CognitiveServices.Speech.extension.silk_codec.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/win10-arm/native/Microsoft.CognitiveServices.Speech.core.dll": {
             "rid": "win10-arm",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/win10-arm/native/Microsoft.CognitiveServices.Speech.extension.audio.sys.dll": {
             "rid": "win10-arm",
@@ -197,12 +222,17 @@
           "runtimes/win10-arm/native/Microsoft.CognitiveServices.Speech.extension.kws.dll": {
             "rid": "win10-arm",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
+          },
+          "runtimes/win10-arm/native/Microsoft.CognitiveServices.Speech.extension.lu.dll": {
+            "rid": "win10-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win10-arm64/native/Microsoft.CognitiveServices.Speech.core.dll": {
             "rid": "win10-arm64",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
           },
           "runtimes/win10-arm64/native/Microsoft.CognitiveServices.Speech.extension.audio.sys.dll": {
             "rid": "win10-arm64",
@@ -212,7 +242,12 @@
           "runtimes/win10-arm64/native/Microsoft.CognitiveServices.Speech.extension.kws.dll": {
             "rid": "win10-arm64",
             "assetType": "native",
-            "fileVersion": "1.16.0.28"
+            "fileVersion": "1.17.0.28"
+          },
+          "runtimes/win10-arm64/native/Microsoft.CognitiveServices.Speech.extension.lu.dll": {
+            "rid": "win10-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -243,199 +278,37 @@
           }
         }
       },
-      "sqlite-net-pcl/1.7.335": {
-        "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLite-net.dll": {
-            "assemblyVersion": "1.7.335.0",
-            "fileVersion": "1.7.335.0"
-          }
-        }
-      },
-      "SQLitePCLRaw.bundle_green/2.0.3": {
-        "dependencies": {
-          "SQLitePCLRaw.core": "2.0.3",
-          "SQLitePCLRaw.lib.e_sqlite3": "2.0.3",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
-          },
-          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
-          }
-        }
-      },
-      "SQLitePCLRaw.core/2.0.3": {
-        "dependencies": {
-          "System.Memory": "4.5.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
-          }
-        }
-      },
-      "SQLitePCLRaw.lib.e_sqlite3/2.0.3": {
-        "runtimeTargets": {
-          "runtimes/alpine-x64/native/libe_sqlite3.so": {
-            "rid": "alpine-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-arm/native/libe_sqlite3.so": {
-            "rid": "linux-arm",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-arm64/native/libe_sqlite3.so": {
-            "rid": "linux-arm64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-armel/native/libe_sqlite3.so": {
-            "rid": "linux-armel",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
-            "rid": "linux-musl-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-x64/native/libe_sqlite3.so": {
-            "rid": "linux-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/linux-x86/native/libe_sqlite3.so": {
-            "rid": "linux-x86",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
-            "rid": "osx-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/win-arm/native/e_sqlite3.dll": {
-            "rid": "win-arm",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/win-arm64/native/e_sqlite3.dll": {
-            "rid": "win-arm64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/win-x64/native/e_sqlite3.dll": {
-            "rid": "win-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/win-x86/native/e_sqlite3.dll": {
-            "rid": "win-x86",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
-        "dependencies": {
-          "SQLitePCLRaw.core": "2.0.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
-          }
-        }
-      },
-      "Syncfusion.Compression.Base/19.1.0.63": {
-        "runtime": {
-          "lib/net5.0/Syncfusion.Compression.Base.dll": {
-            "assemblyVersion": "19.1500.0.63",
-            "fileVersion": "19.1500.0.63"
-          }
-        }
-      },
-      "Syncfusion.DocIO.Wpf/19.1.0.63": {
-        "dependencies": {
-          "Syncfusion.Compression.Base": "19.1.0.63",
-          "Syncfusion.Licensing": "19.1.0.63",
-          "Syncfusion.OfficeChart.Base": "19.1.0.63"
-        },
-        "runtime": {
-          "lib/net5.0-windows/Syncfusion.DocIO.Base.dll": {
-            "assemblyVersion": "19.1500.0.63",
-            "fileVersion": "19.1500.0.63"
-          }
-        }
-      },
-      "Syncfusion.Licensing/19.1.0.63": {
+      "Syncfusion.Licensing/19.1.0.66": {
         "runtime": {
           "lib/net5.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "19.1.0.63",
-            "fileVersion": "19.1.0.63"
+            "assemblyVersion": "19.1.0.66",
+            "fileVersion": "19.1.0.66"
           }
         }
       },
-      "Syncfusion.OfficeChart.Base/19.1.0.63": {
+      "Syncfusion.SfTextInputLayout.WPF/19.1.0.66": {
         "dependencies": {
-          "Syncfusion.Compression.Base": "19.1.0.63"
-        },
-        "runtime": {
-          "lib/net5.0/Syncfusion.OfficeChart.Base.dll": {
-            "assemblyVersion": "19.1500.0.63",
-            "fileVersion": "19.1500.0.63"
-          }
-        }
-      },
-      "Syncfusion.SfRichTextBoxAdv.WPF/19.1.0.63": {
-        "dependencies": {
-          "Syncfusion.Compression.Base": "19.1.0.63",
-          "Syncfusion.DocIO.Wpf": "19.1.0.63",
-          "Syncfusion.Licensing": "19.1.0.63",
-          "Syncfusion.OfficeChart.Base": "19.1.0.63",
-          "Syncfusion.Shared.WPF": "19.1.0.63"
-        },
-        "runtime": {
-          "lib/net5.0-windows/Syncfusion.SfRichTextBoxAdv.WPF.dll": {
-            "assemblyVersion": "19.1500.0.63",
-            "fileVersion": "19.1500.0.63"
-          }
-        }
-      },
-      "Syncfusion.SfTextInputLayout.WPF/19.1.0.63": {
-        "dependencies": {
-          "Syncfusion.Licensing": "19.1.0.63",
-          "Syncfusion.Shared.WPF": "19.1.0.63"
+          "Syncfusion.Licensing": "19.1.0.66",
+          "Syncfusion.Shared.WPF": "19.1.0.66"
         },
         "runtime": {
           "lib/net5.0-windows/Syncfusion.SfTextInputLayout.WPF.dll": {
-            "assemblyVersion": "19.1500.0.63",
-            "fileVersion": "19.1500.0.63"
+            "assemblyVersion": "19.1500.0.66",
+            "fileVersion": "19.1500.0.66"
           }
         }
       },
-      "Syncfusion.Shared.WPF/19.1.0.63": {
+      "Syncfusion.Shared.WPF/19.1.0.66": {
         "dependencies": {
-          "Syncfusion.Licensing": "19.1.0.63"
+          "Syncfusion.Licensing": "19.1.0.66"
         },
         "runtime": {
           "lib/net5.0-windows/Syncfusion.Shared.WPF.dll": {
-            "assemblyVersion": "19.1500.0.63",
-            "fileVersion": "19.1500.0.63"
+            "assemblyVersion": "19.1500.0.66",
+            "fileVersion": "19.1500.0.66"
           }
         }
       },
-      "System.Memory/4.5.3": {},
       "System.Text.Json/4.7.2": {
         "runtime": {
           "lib/netcoreapp3.0/System.Text.Json.dll": {
@@ -469,12 +342,12 @@
       "path": "fluentwpf/0.9.0",
       "hashPath": "fluentwpf.0.9.0.nupkg.sha512"
     },
-    "Microsoft.CognitiveServices.Speech/1.16.0": {
+    "Microsoft.CognitiveServices.Speech/1.17.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8gSgMXPROVLWl8G4KZ6/jZUZhIwL0hdFZQf3lICsrheCjtXQy9Kr5ES/M4W/rcf8wACN8OAIH9YlGDBm83dA9Q==",
-      "path": "microsoft.cognitiveservices.speech/1.16.0",
-      "hashPath": "microsoft.cognitiveservices.speech.1.16.0.nupkg.sha512"
+      "sha512": "sha512-c3xJ+mHrk7p7mCABlN9+vG6XkYguyfkCpIe0+eW1bCUjLGzbJCLN1TFxIOhqIX90nJa9SbbbtJWGu/urdNGdhg==",
+      "path": "microsoft.cognitiveservices.speech/1.17.0",
+      "hashPath": "microsoft.cognitiveservices.speech.1.17.0.nupkg.sha512"
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
       "type": "package",
@@ -497,96 +370,26 @@
       "path": "refractored.mvvmhelpers/1.6.2",
       "hashPath": "refractored.mvvmhelpers.1.6.2.nupkg.sha512"
     },
-    "sqlite-net-pcl/1.7.335": {
+    "Syncfusion.Licensing/19.1.0.66": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
-      "path": "sqlite-net-pcl/1.7.335",
-      "hashPath": "sqlite-net-pcl.1.7.335.nupkg.sha512"
+      "sha512": "sha512-tEmJwSDnfSfa7UizXkTDsf/fwxChpjWT4fblxz4fNLQFr4hkhzR8GZ0LQvK91JwbHCiwJQgb37zM1i7uQgZEhg==",
+      "path": "syncfusion.licensing/19.1.0.66",
+      "hashPath": "syncfusion.licensing.19.1.0.66.nupkg.sha512"
     },
-    "SQLitePCLRaw.bundle_green/2.0.3": {
+    "Syncfusion.SfTextInputLayout.WPF/19.1.0.66": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QgevRdYSy/MtL1TDdWuhoCH5cpBPZYUZd8h/WqgiLGXDa8e93Fv4/SE812SDCdjTb2+6s8SIwSLRq0z2bUeieg==",
-      "path": "sqlitepclraw.bundle_green/2.0.3",
-      "hashPath": "sqlitepclraw.bundle_green.2.0.3.nupkg.sha512"
+      "sha512": "sha512-NUNHrinmWFS7ecOQxz00JGBH9h6kVrQLDFykdI8AavEDywtdx5GEhhq5381F5QSmJDhuRkTGdbBFCvF177ogCw==",
+      "path": "syncfusion.sftextinputlayout.wpf/19.1.0.66",
+      "hashPath": "syncfusion.sftextinputlayout.wpf.19.1.0.66.nupkg.sha512"
     },
-    "SQLitePCLRaw.core/2.0.3": {
+    "Syncfusion.Shared.WPF/19.1.0.66": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9LO3qT7tP+0qBAQxg/PGLHPcsKri4H2zIiiMEg+7EGrnBbuUnJg1tcfKiiqFtRp74kZSAV6N0ZeSGYiodqYnoQ==",
-      "path": "sqlitepclraw.core/2.0.3",
-      "hashPath": "sqlitepclraw.core.2.0.3.nupkg.sha512"
-    },
-    "SQLitePCLRaw.lib.e_sqlite3/2.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VSTQBlcPOcqCCxXnXwo8N2msQuE/Hd6oKpZ5Nn022tq5/+liyx5uEYNw6Hj8logTdkuq+3Nlq7qYQhraFWn1wg==",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.0.3",
-      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512"
-    },
-    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-RybfknbgdhjD+g38vyLA8Ram3CbivpZEUa+ZthtULROrEp81V8hxK30mIsAM9YFb3cOmnF/3hOIjhpVo9h72Lg==",
-      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.3",
-      "hashPath": "sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512"
-    },
-    "Syncfusion.Compression.Base/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5njjcCgxVLrC1wOVPnpw/PSgibQ4KS7hBdKhrKiihRPsFaIbQvSUdNgSaRyhQBZ8uByDgWlCe79J7g6HK8OQcQ==",
-      "path": "syncfusion.compression.base/19.1.0.63",
-      "hashPath": "syncfusion.compression.base.19.1.0.63.nupkg.sha512"
-    },
-    "Syncfusion.DocIO.Wpf/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4UyB0mPnh23zMiOjxs+8uAoWFQk0uN45oOEONf9mZHre3/5V73ZmoYYED83f3Qp5WXnhaB+l3JgJLj/MRN970g==",
-      "path": "syncfusion.docio.wpf/19.1.0.63",
-      "hashPath": "syncfusion.docio.wpf.19.1.0.63.nupkg.sha512"
-    },
-    "Syncfusion.Licensing/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SXRZFTbWpSEADWQJQ2tgoeA7Ib0tSgZ4PdzVJKKxuGWprAsu9XcbcZTCfG6AEHdrsD5iBW8aSs3Tb4as8EMdZg==",
-      "path": "syncfusion.licensing/19.1.0.63",
-      "hashPath": "syncfusion.licensing.19.1.0.63.nupkg.sha512"
-    },
-    "Syncfusion.OfficeChart.Base/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-DuO17ewl32/XVmcoQ1NeV5rrw6+/h9PobB2mu2r0WjeF/BhFbTnsNxxzaV40QWa/mkpJ4F1uHdseK/nTUYfIWA==",
-      "path": "syncfusion.officechart.base/19.1.0.63",
-      "hashPath": "syncfusion.officechart.base.19.1.0.63.nupkg.sha512"
-    },
-    "Syncfusion.SfRichTextBoxAdv.WPF/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jVATRxGQN1UjJ1Y0ZwUDGsMn0m7GdnGJnrApxGcR78e1HPoAFmh/X/ZcfbWo4UX5fPod7X2NyLt/Pc6yaWNNgA==",
-      "path": "syncfusion.sfrichtextboxadv.wpf/19.1.0.63",
-      "hashPath": "syncfusion.sfrichtextboxadv.wpf.19.1.0.63.nupkg.sha512"
-    },
-    "Syncfusion.SfTextInputLayout.WPF/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UpPJxBLjcqXwrMtP6vn0OhHR+rl+yvCigcivYkDTXE2qbPXXF/8h1lSil4FswWfu9bG6IUbEC5hK6c6HI+gfoQ==",
-      "path": "syncfusion.sftextinputlayout.wpf/19.1.0.63",
-      "hashPath": "syncfusion.sftextinputlayout.wpf.19.1.0.63.nupkg.sha512"
-    },
-    "Syncfusion.Shared.WPF/19.1.0.63": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-td5FrA9AUWpHRKP1HLUqt+CP2R9UJWqHPAdeUmgZOR1AaNjJ9QZPXChkN4PVkGvq105H3nJmeEDIMVVLe3UyPA==",
-      "path": "syncfusion.shared.wpf/19.1.0.63",
-      "hashPath": "syncfusion.shared.wpf.19.1.0.63.nupkg.sha512"
-    },
-    "System.Memory/4.5.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
-      "path": "system.memory/4.5.3",
-      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+      "sha512": "sha512-wNo8HsPx/EerSapNIZ4Ue+quKL0n7myfP4if2yN4Myqt0cv6K8AngLE2KIIRClEAiQiAmkvc/wmZ9kyske8T+Q==",
+      "path": "syncfusion.shared.wpf/19.1.0.66",
+      "hashPath": "syncfusion.shared.wpf.19.1.0.66.nupkg.sha512"
     },
     "System.Text.Json/4.7.2": {
       "type": "package",

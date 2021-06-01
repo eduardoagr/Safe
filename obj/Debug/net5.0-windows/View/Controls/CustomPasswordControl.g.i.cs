@@ -13,7 +13,6 @@ using Safe.View.Controls;
 using Syncfusion;
 using Syncfusion.UI.Xaml.TextInputLayout;
 using Syncfusion.Windows;
-using Syncfusion.Windows.Controls.RichTextBoxAdv;
 using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;
 using System;
@@ -76,7 +75,7 @@ namespace Safe.View.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Safe;component/view/controls/custompasswordcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Safe;V1.0.0.0;component/view/controls/custompasswordcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\View\Controls\CustomPasswordControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

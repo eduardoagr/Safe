@@ -19,7 +19,7 @@ namespace Safe.ViewModel {
         public ICommand ExitCommand { get; set; }
         public ICommand NewNotebookCommand { get; set; }
         public ICommand NewNoteCommand { get; set; }
-        public Command LogOutCommand { get; }
+        public ICommand LogOutCommand { get; }
         public ICommand RenameCommand { get; set; }
         public ICommand RenameNotebookCompleteCommand { get; set; }
         public ICommand RenameNoteCompleteCommand { get; set; }
@@ -106,9 +106,6 @@ namespace Safe.ViewModel {
                 ExecuteDelegate = x => CreateNewNote(SelectedNoteBook.Id),
                 CanExecuteDelegate = x => SelectedNoteBook != null
             };
-            LogOutCommand = new Command(() => {
-                LogOut.Invoke(this, new EventArgs());
-            });
             RenameNotebookCompleteCommand = new HelperCommand {
                 ExecuteDelegate = x => EditionCompltedNotebook(SelectedNoteBook),
                 CanExecuteDelegate = x => true
@@ -125,7 +122,7 @@ namespace Safe.ViewModel {
         private async void EditionCompltedNote(Note selectedNote) {
             if (selectedNote != null) {
                 IsVisible = Visibility.Collapsed;
-               await Database.UpdateAsync(selectedNote);
+                await Database.UpdateAsync(selectedNote);
                 GetNoteBooksAsync();
             }
         }
@@ -158,13 +155,11 @@ namespace Safe.ViewModel {
         }
 
         public async void GetNoteBooksAsync() {
-
             var notebooks = await Database.ReadAsync<Notebook>();
 
             if (notebooks != null) {
 
                 notebooks.Where(n => n.Id == App.UserId);
-
                 Notebooks.Clear();
                 foreach (var item in notebooks) {
                     Notebooks.Add(item);

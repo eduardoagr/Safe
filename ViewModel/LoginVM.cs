@@ -6,7 +6,6 @@ using Safe.Model;
 using Safe.ViewModel.Helpers;
 
 using System;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -19,32 +18,6 @@ namespace Safe.ViewModel {
         public HelperCommand CreateAccountCommand { get; }
         public ICommand SwitchViewsCommand { get; set; }
         public User User { get; set; }
-        private string _Name;
-        public string Name {
-            get { return _Name; }
-            set {
-                if (_Name != value) {
-                    _Name = value;
-                    User.Name = _Name;
-                    RaisePropertyChanged();
-                    RaisePropertyChanged("User");
-                }
-            }
-        }
-
-
-        private string _Lastname;
-        public string Lastname {
-            get { return _Lastname; }
-            set {
-                if (_Lastname != value) {
-                    _Lastname = value;
-                    User.Lastname = Lastname;
-                    RaisePropertyChanged();
-                    RaisePropertyChanged("User");
-                }
-            }
-        }
 
 
         private string _Email;

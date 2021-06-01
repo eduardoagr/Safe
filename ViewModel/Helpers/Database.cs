@@ -3,11 +3,7 @@ using Newtonsoft.Json;
 
 using Safe.Inteface;
 
-using SQLite;
-
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +11,6 @@ using System.Threading.Tasks;
 namespace Safe.Helpers {
     public class Database {
 
-        private static readonly string dbFile = Path.Combine(Environment.CurrentDirectory, "NotesDB.db3");
         private static readonly string FirebadeDb = "https://safe-wpf-default-rtdb.europe-west1.firebasedatabase.app/";
 
         public static async Task<bool> InsertAsync<T>(T Item) {
@@ -58,7 +53,7 @@ namespace Safe.Helpers {
             }
         }
 
-        public static async Task<bool> UpdateAsync<T>(T Item) where T : HasId{
+        public static async Task<bool> UpdateAsync<T>(T Item) where T : HasId {
 
             string jsonBody = JsonConvert.SerializeObject(Item);
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
