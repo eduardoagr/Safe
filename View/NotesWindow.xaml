@@ -43,7 +43,8 @@
                     <Fluent:Button Header="Log Out"
                                    Margin="1170,0,0,0"
                                    LargeIcon="/Resources/logout.png"
-                                   Command="{Binding LogOutCommand}" />
+                                   Command="{Binding CloseWidowCommand, Mode=OneWay}"
+                                   CommandParameter="{Binding ElementName=window}"/>
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>

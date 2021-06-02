@@ -3,7 +3,9 @@
 using MvvmHelpers.Commands;
 
 using Safe.Helpers;
+using Safe.Inteface;
 using Safe.Model;
+using Safe.View;
 using Safe.ViewModel.Helpers;
 
 using System;
@@ -23,6 +25,7 @@ namespace Safe.ViewModel {
         public ICommand RenameCommand { get; set; }
         public ICommand RenameNotebookCompleteCommand { get; set; }
         public ICommand RenameNoteCompleteCommand { get; set; }
+        public Command<ICloseable> CloseWidowCommand { get; set; }
         public List<int> FontSizes { get; set; }
         public IOrderedEnumerable<FontFamily> Fonts { get; set; }
         public ObservableCollection<Notebook> Notebooks { get; set; }
@@ -106,6 +109,9 @@ namespace Safe.ViewModel {
                 ExecuteDelegate = x => CreateNewNote(SelectedNoteBook.Id),
                 CanExecuteDelegate = x => SelectedNoteBook != null
             };
+
+            CloseWidowCommand = new Command<ICloseable>(CloseWindow);
+
             RenameNotebookCompleteCommand = new HelperCommand {
                 ExecuteDelegate = x => EditionCompltedNotebook(SelectedNoteBook),
                 CanExecuteDelegate = x => true
@@ -118,6 +124,15 @@ namespace Safe.ViewModel {
 
             GetNoteBooksAsync();
         }
+
+        private void CloseWindow(ICloseable obj) {
+            if (obj != null) {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                obj.Close();
+            }
+        }
+        
 
         private async void EditionCompltedNote(Note selectedNote) {
             if (selectedNote != null) {
@@ -186,6 +201,5 @@ namespace Safe.ViewModel {
         }
 
         public event EventHandler SelectedNoteChanged;
-        public event EventHandler LogOut;
     }
 }

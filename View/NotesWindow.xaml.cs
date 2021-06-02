@@ -5,6 +5,7 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
 using Safe.Helpers;
+using Safe.Inteface;
 using Safe.ViewModel;
 
 using System;
@@ -18,7 +19,7 @@ namespace Safe.View {
     /// <summary>
     /// Interaction logic for NotesWindow.xaml
     /// </summary>
-    public partial class NotesWindow : Window {
+    public partial class NotesWindow : Window, ICloseable {
         readonly string region = "westeurope";
         readonly string azureSpeeshKey = "2ac1fba0bf9d40bca76d17fd0a94d69e";
         readonly string azureStorageKey = "DefaultEndpointsProtocol=https;AccountName=safestoragewpf;AccountKey=cQzJszXHiEzM3Eng1mfIagQNUg8MJNE1YofoNOOwuRVCK7qmkcpeHCuapAy93j3oddjxxcLYq+dVCE3EEhgDCw==;EndpointSuffix=core.windows.net";
