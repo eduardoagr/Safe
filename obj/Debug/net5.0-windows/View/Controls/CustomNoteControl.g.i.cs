@@ -54,7 +54,7 @@ namespace Safe.View.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Safe;V1.0.0.0;component/view/controls/customnotecontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Safe;component/view/controls/customnotecontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\View\Controls\CustomNoteControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -13,7 +13,6 @@ using Safe.View.Controls;
 using Syncfusion;
 using Syncfusion.UI.Xaml.TextInputLayout;
 using Syncfusion.Windows;
-using Syncfusion.Windows.Controls.RichTextBoxAdv;
 using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;
 using System;

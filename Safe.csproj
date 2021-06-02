@@ -41,15 +41,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.8.4" />
     <PackageReference Include="Fluent.Ribbon" Version="8.0.3" />
     <PackageReference Include="FluentWPF" Version="0.9.0" />
-    <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.16.0" />
+    <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.17.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="19.1.0.63" />
-    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="19.1.0.63" />
+    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="19.1.0.66" />
   </ItemGroup>
 
 </Project>

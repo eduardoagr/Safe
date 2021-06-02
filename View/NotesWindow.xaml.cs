@@ -1,4 +1,6 @@
 ﻿
+using Azure.Storage.Blobs;
+
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
@@ -7,6 +9,7 @@ using Safe.ViewModel;
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -17,7 +20,8 @@ namespace Safe.View {
     /// </summary>
     public partial class NotesWindow : Window {
         readonly string region = "westeurope";
-        readonly string key = "2ac1fba0bf9d40bca76d17fd0a94d69e";
+        readonly string azureSpeeshKey = "2ac1fba0bf9d40bca76d17fd0a94d69e";
+        readonly string azureStorageKey = "DefaultEndpointsProtocol=https;AccountName=safestoragewpf;AccountKey=cQzJszXHiEzM3Eng1mfIagQNUg8MJNE1YofoNOOwuRVCK7qmkcpeHCuapAy93j3oddjxxcLYq+dVCE3EEhgDCw==;EndpointSuffix=core.windows.net";
         readonly SpeechRecognizer recog;
         bool isRecognizing;
         readonly NotesWindowVM vM;
@@ -27,7 +31,7 @@ namespace Safe.View {
             vM = Resources["vm"] as NotesWindowVM;
             vM.SelectedNoteChanged += VM_SelectedNoteChanged;
 
-            var speechRecognizer = SpeechConfig.FromSubscription(key, region);
+            var speechRecognizer = SpeechConfig.FromSubscription(azureSpeeshKey, region);
             var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             recog = new SpeechRecognizer(speechRecognizer, audioConfig);
 
@@ -39,10 +43,11 @@ namespace Safe.View {
             NoteContent.Document.Blocks.Clear();
             if (vM.SelectedNote != null) {
                 if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
-                    using FileStream fs = new(vM.SelectedNote.FileLocation, FileMode.Open);
-                    var contents = new TextRange(NoteContent.Document.ContentStart,
-                    NoteContent.Document.ContentEnd);
-                    contents.Load(fs, DataFormats.Rtf);
+                    using (FileStream fs = new(vM.SelectedNote.FileLocation, FileMode.Open)) {
+                        var contents = new TextRange(NoteContent.Document.ContentStart,
+                        NoteContent.Document.ContentEnd);
+                        contents.Load(fs, DataFormats.Rtf);
+                    }
                 }
             }
         }
@@ -141,16 +146,34 @@ namespace Safe.View {
         private void SizeConboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             NoteContent.Selection.ApplyPropertyValue(FontSizeProperty, SizeConboBox.Text);
         }
-        private void SaveBton_Click(object sender, RoutedEventArgs e) {
+        private async void SaveBton_Click(object sender, RoutedEventArgs e) {
 
-            var rtfFile = Path.Combine(Environment.CurrentDirectory, $"{vM.SelectedNote.Id}");
+            var fileName = $"{vM.SelectedNote.Id}";
+            var rtfFile = Path.Combine(Environment.CurrentDirectory, fileName);
             vM.SelectedNote.FileLocation = rtfFile;
-            Database.UpdateAsync(vM.SelectedNote);
 
-            FileStream fs = new(rtfFile, FileMode.Create);
-            var contents = new TextRange(NoteContent.Document.ContentStart,
+            using (FileStream fs = new(rtfFile, FileMode.Create)) {
+                var contents = new TextRange(NoteContent.Document.ContentStart,
                 NoteContent.Document.ContentEnd);
-            contents.Save(fs, DataFormats.Rtf);
+                contents.Save(fs, DataFormats.Rtf);
+            }
+
+            vM.SelectedNote.FileLocation = await UpdateFileAsync(rtfFile, fileName);
+            await Database.UpdateAsync(vM.SelectedNote);
+
+        }
+
+        private async Task<string> UpdateFileAsync(string rtfFile, string fileName) {
+
+            var connectionString = azureStorageKey;
+            var containerName = "notes";
+
+            var containerClient = new BlobContainerClient(connectionString, containerName);
+
+            var blob = containerClient.GetBlobClient(fileName);
+            await blob.UploadAsync(rtfFile);
+
+            return $"https://safestoragewpf.blob.core.windows.net/notes/{fileName}";
         }
     }
 }
