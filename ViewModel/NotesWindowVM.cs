@@ -165,14 +165,13 @@ namespace Safe.ViewModel {
 
         private async void CreateNewNotebook() {
             Notebooks.Clear();
-            Notebook notebook = new() { Name = $"Notebook", UserId = App.UserId };
+            Notebook notebook = new() { Id = new Guid().ToString(), Name = $"Notebook", UserId = App.UserId };
             await Database.InsertAsync(notebook);
             GetNoteBooksAsync();
         }
 
         public async void GetNoteBooksAsync() {
             var notebooks = await Database.ReadAsync<Notebook>();
-
             if (notebooks != null) {
 
                 notebooks.Where(n => n.Id == App.UserId);
@@ -183,10 +182,7 @@ namespace Safe.ViewModel {
             }
 
         }
-
-
         private async void GetNotes() {
-            Notes.Clear();
             if (SelectedNoteBook != null) {
                 var notes = await Database.ReadAsync<Note>();
                 if (notes != null) {
