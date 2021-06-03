@@ -127,7 +127,7 @@ namespace Safe.ViewModel {
 
         private void CloseWindow(ICloseable obj) {
             if (obj != null) {
-                LoginWindow loginWindow = new LoginWindow();
+                LoginWindow loginWindow = new();
                 loginWindow.Show();
                 obj.Close();
             }
@@ -164,6 +164,7 @@ namespace Safe.ViewModel {
         }
 
         private async void CreateNewNotebook() {
+            Notebooks.Clear();
             Notebook notebook = new() { Name = $"Notebook", UserId = App.UserId };
             await Database.InsertAsync(notebook);
             GetNoteBooksAsync();
@@ -185,7 +186,7 @@ namespace Safe.ViewModel {
 
 
         private async void GetNotes() {
-
+            Notes.Clear();
             if (SelectedNoteBook != null) {
                 var notes = await Database.ReadAsync<Note>();
                 if (notes != null) {
