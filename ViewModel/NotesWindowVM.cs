@@ -132,7 +132,7 @@ namespace Safe.ViewModel {
                 obj.Close();
             }
         }
-        
+
 
         private async void EditionCompltedNote(Note selectedNote) {
             if (selectedNote != null) {
@@ -164,7 +164,7 @@ namespace Safe.ViewModel {
         }
 
         private async void CreateNewNotebook() {
-            Notebook notebook = new() {Name = $"Notebook", UserId = App.UserId };
+            Notebook notebook = new() { Name = $"Notebook", UserId = App.UserId };
             await Database.InsertAsync(notebook);
             GetNoteBooksAsync();
         }
@@ -183,7 +183,7 @@ namespace Safe.ViewModel {
         private async void GetNotes() {
             if (SelectedNoteBook != null) {
                 var notes = await Database.ReadAsync<Note>();
-                if (notes != null && notes.Count > 0) {
+                if (notes != null && notes.Count > 0 && SelectedNoteBook.Id != null) {
                     var notebookNotes = notes.Where(n => n.NotebookId == SelectedNoteBook.Id).ToList();
                     Notes.Clear();
                     foreach (var item in notebookNotes) {
