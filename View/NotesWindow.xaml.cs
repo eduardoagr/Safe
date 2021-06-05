@@ -44,14 +44,13 @@ namespace Safe.View {
             NoteContent.Document.Blocks.Clear();
             if (vM.SelectedNote != null) {
                 string downloadPath = $"{vM.SelectedNote.Id}.rtf";
-                if (vM.SelectedNote.FileLocation != null) {
+                if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation) {
                     await new BlobClient(new Uri(vM.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
-                }
-                if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
                     using (FileStream fs = new(downloadPath, FileMode.Open)) {
                         var contents = new TextRange(NoteContent.Document.ContentStart,
                         NoteContent.Document.ContentEnd);
                         contents.Load(fs, DataFormats.Rtf);
+
                     }
                 }
             }
@@ -163,7 +162,7 @@ namespace Safe.View {
                 contents.Save(fs, DataFormats.Rtf);
             }
 
-           vM.SelectedNote.FileLocation = await UpdateFileAsync(rtfFile, fileName);
+            vM.SelectedNote.FileLocation = await UpdateFileAsync(rtfFile, fileName);
             await Database.UpdateAsync(vM.SelectedNote);
 
         }
