@@ -40,11 +40,15 @@ namespace Safe.View {
         }
 
 
-        private void VM_SelectedNoteChanged(object sender, EventArgs e) {
+        private async void VM_SelectedNoteChanged(object sender, EventArgs e) {
             NoteContent.Document.Blocks.Clear();
             if (vM.SelectedNote != null) {
+                string downloadPath = $"{vM.SelectedNote.Id}.rtf";
+                if (vM.SelectedNote.FileLocation != null) {
+                    await new BlobClient(new Uri(vM.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
+                }
                 if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
-                    using (FileStream fs = new(vM.SelectedNote.FileLocation, FileMode.Open)) {
+                    using (FileStream fs = new(downloadPath, FileMode.Open)) {
                         var contents = new TextRange(NoteContent.Document.ContentStart,
                         NoteContent.Document.ContentEnd);
                         contents.Load(fs, DataFormats.Rtf);
@@ -159,7 +163,7 @@ namespace Safe.View {
                 contents.Save(fs, DataFormats.Rtf);
             }
 
-            vM.SelectedNote.FileLocation = await UpdateFileAsync(rtfFile, fileName);
+           vM.SelectedNote.FileLocation = await UpdateFileAsync(rtfFile, fileName);
             await Database.UpdateAsync(vM.SelectedNote);
 
         }
@@ -172,7 +176,7 @@ namespace Safe.View {
             var containerClient = new BlobContainerClient(connectionString, containerName);
 
             var blob = containerClient.GetBlobClient(fileName);
-            await blob.UploadAsync(rtfFile);
+            await blob.UploadAsync(rtfFile, overwrite: true);
 
             return $"https://safestoragewpf.blob.core.windows.net/notes/{fileName}";
         }

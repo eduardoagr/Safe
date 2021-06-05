@@ -58,7 +58,8 @@ namespace Safe.Helpers {
             string jsonBody = JsonConvert.SerializeObject(Item);
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
             using (HttpClient client = new()) {
-                var res = await client.PatchAsync($"{FirebadeDb}{Item.GetType().Name.ToLower()}/{Item.Id}.json", content);
+                var res = await client.PatchAsync
+                    ($"{FirebadeDb}{Item.GetType().Name.ToLower()}/{Item.Id}.json", content);
                 if (res.IsSuccessStatusCode) {
                     return true;
                 } else {
@@ -70,7 +71,8 @@ namespace Safe.Helpers {
         public static async Task<bool> DeleteAsync<T>(T Item) where T : HasId {
 
             using (HttpClient client = new()) {
-                var res = await client.DeleteAsync($"{FirebadeDb}{Item.GetType().Name.ToLower()}/{Item.Id}.json");
+                var res = await client.DeleteAsync
+                    ($"{FirebadeDb}{Item.GetType().Name.ToLower()}/{Item.Id}.json");
                 if (res.IsSuccessStatusCode) {
                     return true;
                 } else {
