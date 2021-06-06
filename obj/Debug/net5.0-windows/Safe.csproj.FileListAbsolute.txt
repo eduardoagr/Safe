@@ -148,7 +148,6 @@ C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win10-a
 C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win10-arm64\native\Microsoft.CognitiveServices.Speech.core.dll
 C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win10-arm64\native\Microsoft.CognitiveServices.Speech.extension.audio.sys.dll
 C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win10-arm64\native\Microsoft.CognitiveServices.Speech.extension.kws.dll
-C:\Users\egome\Documents\GitRepos\Safe\obj\Debug\net5.0-windows\Safe.csprojAssemblyReference.cache
 C:\Users\egome\Documents\GitRepos\Safe\obj\Debug\net5.0-windows\View\Controls\CustomNotebookControl.g.cs
 C:\Users\egome\Documents\GitRepos\Safe\obj\Debug\net5.0-windows\View\Controls\CustomNoteControl.g.cs
 C:\Users\egome\Documents\GitRepos\Safe\obj\Debug\net5.0-windows\View\Controls\CustomPasswordControl.g.cs
@@ -186,3 +185,4 @@ C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win-x64
 C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.lu.dll
 C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win10-arm\native\Microsoft.CognitiveServices.Speech.extension.lu.dll
 C:\Users\egome\Documents\GitRepos\Safe\bin\Debug\net5.0-windows\runtimes\win10-arm64\native\Microsoft.CognitiveServices.Speech.extension.lu.dll
+C:\Users\egome\Documents\GitRepos\Safe\obj\Debug\net5.0-windows\Safe.csprojAssemblyReference.cache

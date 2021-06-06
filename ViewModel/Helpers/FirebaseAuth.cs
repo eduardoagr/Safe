@@ -1,5 +1,4 @@
 ﻿
-
 using Newtonsoft.Json;
 
 using Safe.Model;
@@ -59,7 +58,6 @@ namespace Safe.ViewModel.Helpers {
             var data = new StringContent(bodyJson, Encoding.UTF8, "application/json");
             var response = await client.PostAsync
                 ($"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={FirebaseKey}", data);
-
             if (response.IsSuccessStatusCode) {
                 string resutJson = await response.Content.ReadAsStringAsync();
                 var res = JsonConvert.DeserializeObject<AuthResult>(resutJson);
@@ -75,5 +73,4 @@ namespace Safe.ViewModel.Helpers {
             }
         }
     }
-
 }

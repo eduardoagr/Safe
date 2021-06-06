@@ -20,9 +20,7 @@ namespace Safe.View {
     /// Interaction logic for NotesWindow.xaml
     /// </summary>
     public partial class NotesWindow : Window, ICloseable {
-        readonly string region = "westeurope";
-        readonly string azureSpeeshKey = "2ac1fba0bf9d40bca76d17fd0a94d69e";
-        readonly string azureStorageKey = "DefaultEndpointsProtocol=https;AccountName=safestoragewpf;AccountKey=cQzJszXHiEzM3Eng1mfIagQNUg8MJNE1YofoNOOwuRVCK7qmkcpeHCuapAy93j3oddjxxcLYq+dVCE3EEhgDCw==;EndpointSuffix=core.windows.net";
+
         readonly SpeechRecognizer recog;
         bool isRecognizing;
         readonly NotesWindowVM vM;
@@ -32,22 +30,19 @@ namespace Safe.View {
             vM = Resources["vm"] as NotesWindowVM;
             vM.SelectedNoteChanged += VM_SelectedNoteChanged;
 
-            var speechRecognizer = SpeechConfig.FromSubscription(azureSpeeshKey, region);
+            var speechRecognizer = SpeechConfig.FromSubscription(App.azureSpeeshKey, App.region);
             var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             recog = new SpeechRecognizer(speechRecognizer, audioConfig);
 
             recog.Recognized += SpeechRecognizer_Recognized;
         }
 
-
         private async void VM_SelectedNoteChanged(object sender, EventArgs e) {
             NoteContent.Document.Blocks.Clear();
             if (vM.SelectedNote != null) {
                 string downloadPath = $"{vM.SelectedNote.Id}.rtf";
-                if (vM.SelectedNote.FileLocation != null) {
-                    await new BlobClient(new Uri(vM.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
-                }
                 if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
+                    await new BlobClient(new Uri(vM.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
                     using (FileStream fs = new(downloadPath, FileMode.Open)) {
                         var contents = new TextRange(NoteContent.Document.ContentStart,
                         NoteContent.Document.ContentEnd);
@@ -165,12 +160,11 @@ namespace Safe.View {
 
             vM.SelectedNote.FileLocation = await UpdateFileAsync(rtfFile, fileName);
             await Database.UpdateAsync(vM.SelectedNote);
-
         }
 
         private async Task<string> UpdateFileAsync(string rtfFile, string fileName) {
 
-            var connectionString = azureStorageKey;
+            var connectionString = App.azureStorageKey;
             var containerName = "notes";
 
             var containerClient = new BlobContainerClient(connectionString, containerName);
