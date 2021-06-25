@@ -42,7 +42,8 @@ namespace Safe.View {
             if (vM.SelectedNote != null) {
                 string downloadPath = $"{vM.SelectedNote.Id}.rtf";
                 if (!string.IsNullOrEmpty(vM.SelectedNote.FileLocation)) {
-                    await new BlobClient(new Uri(vM.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
+                    await new BlobClient
+                        (new Uri(vM.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
                     using (FileStream fs = new(downloadPath, FileMode.Open)) {
                         var contents = new TextRange(NoteContent.Document.ContentStart,
                         NoteContent.Document.ContentEnd);
@@ -162,7 +163,7 @@ namespace Safe.View {
             await Database.UpdateAsync(vM.SelectedNote);
         }
 
-        private async Task<string> UpdateFileAsync(string rtfFile, string fileName) {
+        private static async Task<string> UpdateFileAsync(string rtfFile, string fileName) {
 
             var connectionString = App.azureStorageKey;
             var containerName = "notes";

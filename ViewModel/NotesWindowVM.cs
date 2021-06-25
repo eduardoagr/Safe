@@ -154,8 +154,8 @@ namespace Safe.ViewModel {
         private async void CreateNewNote(string NotebookId) {
             Note note = new() {
                 NotebookId = NotebookId,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.Now.ToString("dddd, dd MMMM yyyy"),
+                UpdatedAt = DateTime.Now.ToString("dddd, dd MMMM yyyy"),
                 Title = "New Note"
             };
             await Database.InsertAsync(note);
@@ -164,7 +164,11 @@ namespace Safe.ViewModel {
         }
 
         private async void CreateNewNotebook() {
-            Notebook notebook = new() { Name = $"Notebook", UserId = App.UserId };
+            Notebook notebook = new() {
+                Name = $"Notebook",
+                CreatedAt = DateTime.Now.ToString("dddd, dd MMMM yyyy"),
+                UserId = App.UserId
+            };
             await Database.InsertAsync(notebook);
             GetNoteBooksAsync();
         }
@@ -183,7 +187,10 @@ namespace Safe.ViewModel {
         private async void GetNotes() {
             if (SelectedNoteBook != null) {
                 var notes = await Database.ReadAsync<Note>();
-                if (notes != null && notes.Count > 0 && SelectedNoteBook.Id != null) {
+                if (notes != null &&
+                    notes.Count > 0 &&
+                    SelectedNoteBook.Id != null &&
+                    SelectedNoteBook != null) {
                     var notebookNotes = notes.Where(n => n.NotebookId == SelectedNoteBook.Id).ToList();
                     Notes.Clear();
                     foreach (var item in notebookNotes) {

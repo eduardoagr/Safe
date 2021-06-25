@@ -6,12 +6,18 @@
              xmlns:local="clr-namespace:Safe.View.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
-    <Grid>
+    <StackPanel>
         <TextBlock Text="{Binding Name}"
                    FontWeight="Bold"
                    Margin="5"
                    FontSize="14"
                    Foreground="White"
-                   FontStyle="Italic"/> 
-    </Grid>
+                   FontStyle="Italic"/>
+        <TextBlock Text="{Binding CreatedAt, StringFormat='Created on: {0}'}"
+                   FontWeight="Bold"
+                   Margin="5"
+                   FontSize="10"
+                   Foreground="White"
+                   FontStyle="Italic"/>
+    </StackPanel>
 </UserControl>

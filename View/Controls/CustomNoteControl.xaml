@@ -11,9 +11,12 @@
                FontSize="14"
                Foreground="Black"
                FontWeight="Bold"/>
-        <Label Content="{Binding UpdatedAt}"
-               FontSize="8"
-               Foreground="Black"/>
+        <TextBlock Text="{Binding CreatedAt, StringFormat='Created on: {0}'}"
+                   FontWeight="Bold"
+                   Margin="5"
+                   FontSize="10"
+                   Foreground="Black"
+                   FontStyle="Italic"/>
 
     </StackPanel>
 </UserControl>

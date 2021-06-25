@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
-      "Azure.Core/1.14.0": {
+      "Azure.Core/1.15.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.0.0",
@@ -22,10 +22,10 @@
           "lib/net5.0/Azure.Core.dll": {}
         }
       },
-      "Azure.Storage.Blobs/12.8.4": {
+      "Azure.Storage.Blobs/12.9.0": {
         "type": "package",
         "dependencies": {
-          "Azure.Storage.Common": "12.7.3",
+          "Azure.Storage.Common": "12.8.0",
           "System.Text.Json": "4.6.0"
         },
         "compile": {
@@ -35,10 +35,10 @@
           "lib/netstandard2.0/Azure.Storage.Blobs.dll": {}
         }
       },
-      "Azure.Storage.Common/12.7.3": {
+      "Azure.Storage.Common/12.8.0": {
         "type": "package",
         "dependencies": {
-          "Azure.Core": "1.14.0"
+          "Azure.Core": "1.15.0"
         },
         "compile": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
@@ -306,7 +306,7 @@
           "lib/netstandard2.0/MvvmHelpers.dll": {}
         }
       },
-      "Syncfusion.Licensing/19.1.0.66": {
+      "Syncfusion.Licensing/19.1.0.69": {
         "type": "package",
         "compile": {
           "lib/net5.0/Syncfusion.Licensing.dll": {}
@@ -315,11 +315,11 @@
           "lib/net5.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.SfTextInputLayout.WPF/19.1.0.66": {
+      "Syncfusion.SfTextInputLayout.WPF/19.1.0.69": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "19.1.0.66",
-          "Syncfusion.Shared.WPF": "19.1.0.66"
+          "Syncfusion.Licensing": "19.1.0.69",
+          "Syncfusion.Shared.WPF": "19.1.0.69"
         },
         "compile": {
           "lib/net5.0-windows/Syncfusion.SfTextInputLayout.WPF.dll": {}
@@ -328,10 +328,10 @@
           "lib/net5.0-windows/Syncfusion.SfTextInputLayout.WPF.dll": {}
         }
       },
-      "Syncfusion.Shared.WPF/19.1.0.66": {
+      "Syncfusion.Shared.WPF/19.1.0.69": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "19.1.0.66"
+          "Syncfusion.Licensing": "19.1.0.69"
         },
         "compile": {
           "lib/net5.0-windows/Syncfusion.Shared.WPF.dll": {}
@@ -428,16 +428,16 @@
     }
   },
   "libraries": {
-    "Azure.Core/1.14.0": {
-      "sha512": "kUMUOZX4FcmfHmy7OjyP5LovO5FMXco9uUYB76l77mtqMVbZ0cLobv+XCy/j6LpStc8cZo2sI1+dMXhk0YROEQ==",
+    "Azure.Core/1.15.0": {
+      "sha512": "WJzKg22PtGvjAfB+yaRX/LC9ItiXYbNzgXj3DGKQYOdu2cBkijQ4ZlWi4poI0AnI61GOsATHlNS/9GgdG6w6FQ==",
       "type": "package",
-      "path": "azure.core/1.14.0",
+      "path": "azure.core/1.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.core.1.14.0.nupkg.sha512",
+        "azure.core.1.15.0.nupkg.sha512",
         "azure.core.nuspec",
         "lib/net461/Azure.Core.dll",
         "lib/net461/Azure.Core.xml",
@@ -450,32 +450,32 @@
         "pkgicon.png"
       ]
     },
-    "Azure.Storage.Blobs/12.8.4": {
-      "sha512": "/LYjw6jcCmSneo4TPeD45yOVqFeMID2BZmB2ukvV2SB/tTYecbQACIhTvd2RtpRGu6Zl3YPFIjqSG9vc0OM+hA==",
+    "Azure.Storage.Blobs/12.9.0": {
+      "sha512": "nVjRfa0+/xJguoP/4F2tSk4OMAixO3QE2azG+RcbdcoZVVrEF7eVNlpsJoDSWwFBM7qiVc6+O7hwji3JjXmdrA==",
       "type": "package",
-      "path": "azure.storage.blobs/12.8.4",
+      "path": "azure.storage.blobs/12.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.storage.blobs.12.8.4.nupkg.sha512",
+        "azure.storage.blobs.12.9.0.nupkg.sha512",
         "azure.storage.blobs.nuspec",
         "lib/netstandard2.0/Azure.Storage.Blobs.dll",
         "lib/netstandard2.0/Azure.Storage.Blobs.xml",
         "pkgicon.png"
       ]
     },
-    "Azure.Storage.Common/12.7.3": {
-      "sha512": "anWOlltpSZ1WtezGCh0yxVuXG6wEIi2Ql9/AWJw74bfKGPrntlPoaisHdoQstm66aVzPAM8/vat7Hh0BXYQAVA==",
+    "Azure.Storage.Common/12.8.0": {
+      "sha512": "2nR+kp1UfF+Ib3JHJkFf1VcVkx98ESIXoxUQ751uZ+fPtABAvA4C5JKuwLhksLVfnVMaljQRGS1BhHjrrUoz9g==",
       "type": "package",
-      "path": "azure.storage.common/12.7.3",
+      "path": "azure.storage.common/12.8.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.storage.common.12.7.3.nupkg.sha512",
+        "azure.storage.common.12.8.0.nupkg.sha512",
         "azure.storage.common.nuspec",
         "lib/netstandard2.0/Azure.Storage.Common.dll",
         "lib/netstandard2.0/Azure.Storage.Common.xml",
@@ -873,10 +873,10 @@
         "refractored.mvvmhelpers.nuspec"
       ]
     },
-    "Syncfusion.Licensing/19.1.0.66": {
-      "sha512": "tEmJwSDnfSfa7UizXkTDsf/fwxChpjWT4fblxz4fNLQFr4hkhzR8GZ0LQvK91JwbHCiwJQgb37zM1i7uQgZEhg==",
+    "Syncfusion.Licensing/19.1.0.69": {
+      "sha512": "XbTWCcu7VkjbhIOFoAdheUTVyU6IruXlzmmBuCSKyUqVzMRxXKDadPD4hm8ObPBG9AwNcrG2B5ntL/xJAkNXWw==",
       "type": "package",
-      "path": "syncfusion.licensing/19.1.0.66",
+      "path": "syncfusion.licensing/19.1.0.69",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -898,14 +898,14 @@
         "lib/netstandard2.0/Syncfusion.Licensing.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
         "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.19.1.0.66.nupkg.sha512",
+        "syncfusion.licensing.19.1.0.69.nupkg.sha512",
         "syncfusion.licensing.nuspec"
       ]
     },
-    "Syncfusion.SfTextInputLayout.WPF/19.1.0.66": {
-      "sha512": "NUNHrinmWFS7ecOQxz00JGBH9h6kVrQLDFykdI8AavEDywtdx5GEhhq5381F5QSmJDhuRkTGdbBFCvF177ogCw==",
+    "Syncfusion.SfTextInputLayout.WPF/19.1.0.69": {
+      "sha512": "1YJpqZresrsZb8lEN3VlGnfwXUrktIC+4D0oqHvpIHFvQpaGpAxdF7E+zEUPQSyEuBqKzOMKsLtrKsu1PIYVOQ==",
       "type": "package",
-      "path": "syncfusion.sftextinputlayout.wpf/19.1.0.66",
+      "path": "syncfusion.sftextinputlayout.wpf/19.1.0.69",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -928,15 +928,15 @@
         "lib/netcoreapp3.1/Design/Syncfusion.SfTextInputLayout.WPF.DesignTools.dll",
         "lib/netcoreapp3.1/Syncfusion.SfTextInputLayout.WPF.dll",
         "lib/netcoreapp3.1/Syncfusion.SfTextInputLayout.WPF.xml",
-        "syncfusion.sftextinputlayout.wpf.19.1.0.66.nupkg.sha512",
+        "syncfusion.sftextinputlayout.wpf.19.1.0.69.nupkg.sha512",
         "syncfusion.sftextinputlayout.wpf.nuspec",
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
-    "Syncfusion.Shared.WPF/19.1.0.66": {
-      "sha512": "wNo8HsPx/EerSapNIZ4Ue+quKL0n7myfP4if2yN4Myqt0cv6K8AngLE2KIIRClEAiQiAmkvc/wmZ9kyske8T+Q==",
+    "Syncfusion.Shared.WPF/19.1.0.69": {
+      "sha512": "n3D9XmeVu9eAtUyUhUSKgdOk4HTWDEQzlZE0rYdQ/kfp8pF8rwccbZomUtVzEoA81PQgrGpXoqOO/P2eOC3MAA==",
       "type": "package",
-      "path": "syncfusion.shared.wpf/19.1.0.66",
+      "path": "syncfusion.shared.wpf/19.1.0.69",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -982,7 +982,7 @@
         "lib/netcoreapp3.1/Design/Syncfusion.Shared.WPF.DesignTools.dll",
         "lib/netcoreapp3.1/Syncfusion.Shared.WPF.dll",
         "lib/netcoreapp3.1/Syncfusion.Shared.WPF.xml",
-        "syncfusion.shared.wpf.19.1.0.66.nupkg.sha512",
+        "syncfusion.shared.wpf.19.1.0.69.nupkg.sha512",
         "syncfusion.shared.wpf.nuspec",
         "tools/VisualStudioToolsManifest.xml"
       ]
@@ -1259,14 +1259,14 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "Azure.Storage.Blobs >= 12.8.4",
+      "Azure.Storage.Blobs >= 12.9.0",
       "Fluent.Ribbon >= 8.0.3",
       "FluentWPF >= 0.9.0",
       "Microsoft.CognitiveServices.Speech >= 1.17.0",
       "Microsoft.Xaml.Behaviors.Wpf >= 1.1.31",
       "Newtonsoft.Json >= 13.0.1",
       "Refractored.MvvmHelpers >= 1.6.2",
-      "Syncfusion.SfTextInputLayout.WPF >= 19.1.0.66"
+      "Syncfusion.SfTextInputLayout.WPF >= 19.1.0.69"
     ]
   },
   "packageFolders": {
@@ -1277,11 +1277,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\egome\\Documents\\GitRepos\\Safe\\Safe.csproj",
+      "projectUniqueName": "C:\\Users\\egome\\Documents\\GitHub\\Safe\\Safe.csproj",
       "projectName": "Safe",
-      "projectPath": "C:\\Users\\egome\\Documents\\GitRepos\\Safe\\Safe.csproj",
+      "projectPath": "C:\\Users\\egome\\Documents\\GitHub\\Safe\\Safe.csproj",
       "packagesPath": "C:\\Users\\egome\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\egome\\Documents\\GitRepos\\Safe\\obj\\",
+      "outputPath": "C:\\Users\\egome\\Documents\\GitHub\\Safe\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -1318,7 +1318,7 @@
         "dependencies": {
           "Azure.Storage.Blobs": {
             "target": "Package",
-            "version": "[12.8.4, )"
+            "version": "[12.9.0, )"
           },
           "Fluent.Ribbon": {
             "target": "Package",
@@ -1346,7 +1346,7 @@
           },
           "Syncfusion.SfTextInputLayout.WPF": {
             "target": "Package",
-            "version": "[19.1.0.66, )"
+            "version": "[19.1.0.69, )"
           }
         },
         "imports": [
@@ -1367,7 +1367,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

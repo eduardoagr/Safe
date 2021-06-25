@@ -7,7 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\egome\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages;C:\Program Files (x86)\Microsoft\Xamarin\NuGet\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.9.1</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.10.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\egome\.nuget\packages\" />
@@ -21,8 +21,8 @@
     <Import Project="$(NuGetPackageRoot)microsoft.cognitiveservices.speech\1.17.0\build\Microsoft.CognitiveServices.Speech.props" Condition="Exists('$(NuGetPackageRoot)microsoft.cognitiveservices.speech\1.17.0\build\Microsoft.CognitiveServices.Speech.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgSyncfusion_Shared_WPF Condition=" '$(PkgSyncfusion_Shared_WPF)' == '' ">C:\Users\egome\.nuget\packages\syncfusion.shared.wpf\19.1.0.66</PkgSyncfusion_Shared_WPF>
-    <PkgSyncfusion_SfTextInputLayout_WPF Condition=" '$(PkgSyncfusion_SfTextInputLayout_WPF)' == '' ">C:\Users\egome\.nuget\packages\syncfusion.sftextinputlayout.wpf\19.1.0.66</PkgSyncfusion_SfTextInputLayout_WPF>
+    <PkgSyncfusion_Shared_WPF Condition=" '$(PkgSyncfusion_Shared_WPF)' == '' ">C:\Users\egome\.nuget\packages\syncfusion.shared.wpf\19.1.0.69</PkgSyncfusion_Shared_WPF>
+    <PkgSyncfusion_SfTextInputLayout_WPF Condition=" '$(PkgSyncfusion_SfTextInputLayout_WPF)' == '' ">C:\Users\egome\.nuget\packages\syncfusion.sftextinputlayout.wpf\19.1.0.69</PkgSyncfusion_SfTextInputLayout_WPF>
     <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\egome\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.31</PkgMicrosoft_Xaml_Behaviors_Wpf>
   </PropertyGroup>
 </Project>
