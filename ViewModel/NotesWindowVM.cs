@@ -111,7 +111,6 @@ namespace Safe.ViewModel {
             };
 
             CloseWidowCommand = new Command<ICloseable>(CloseWindow);
-
             RenameNotebookCompleteCommand = new HelperCommand {
                 ExecuteDelegate = x => EditionCompltedNotebook(SelectedNoteBook),
                 CanExecuteDelegate = x => true
